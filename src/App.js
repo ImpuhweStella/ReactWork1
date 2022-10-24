@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function App(){
+  const[FirstName,setFirstName]=useState("");
+  const[LastName,setLastName]=useState("");
+  const holdFirstName = k =>{
+    setFirstName(k.target.value)
+  }
+  const holdLastName = k =>{
+    setLastName(k.target.value)
+  }
+
+  return(
+    <>
+    <body>
+    <form>
+    <div>
+    <h1>MY ACCOUNT:</h1>
     </div>
+    <div>
+    <input  type="text" placeholder="FirstName" value={FirstName} onChange={holdFirstName}></input>
+    </div>
+    <div>
+    <input type="text" placeholder="LastName" value={LastName} onChange={holdLastName} ></input>
+    </div>
+    </form>
+    <h2>FirstName:{FirstName} </h2>
+    <h2>LastName:{LastName}</h2>
+    </body>
+    </>
+   
   );
 }
 
